@@ -230,3 +230,9 @@
         display: block;
     }
 }
+
+@media (max-width: 768px) {
+    .page-banner {
+        margin-top: 80px;
+    }
+}
