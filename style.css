@@ -700,7 +700,7 @@ footer span { color: #c81010; }
         padding: 0 16px;
         display: flex;
         align-items: center;
-        overflow: hidden;
+        overflow: visible;
     }
 
     nav {
