@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLTA & Co.</title>
+    <meta name="description" content="CLTA & Co. - Premier Accounting, Law and Taxation Firm providing comprehensive professional services for over a decade.">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>CLTA & Co. | Accounting, Law & Taxation Services</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,327 +15,215 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="images/logo.png" alt="CLTA & Co. Logo">
+                <img src="images/logo.png" alt="CLTA & Co. - Accounting Law Taxation Logo">
             </div>
-            <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul id="navMenu">
-    <li class="close-item">
-        <button class="close-menu" id="closeMenu" aria-label="Close menu">✕</button>
-    </li>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="team.html">Our Team</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-</ul>
+            <ul id="navMenu" role="navigation">
+                <li class="close-item">
+                    <button class="close-menu" id="closeMenu" aria-label="Close menu">✕</button>
+                </li>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="team.html">Our Team</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
         </nav>
     </header>
 
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-    <section class="hero">
-        <img src="images/brg.jpg" class="hero-bg-img" id="heroBgImg"
-             style="object-position: center center;" alt="">
+    <main>
+        <section class="hero">
+            <img src="images/brg.jpg" class="hero-bg-img" id="heroBgImg"
+                 alt="CLTA & Co. professional office environment showcasing modern workspace">
 
-        <div class="hero-panel" id="heroPanel">
-            <div class="hero-titles">
-                <h1>Cruz, Lontok, Tullao, Abrigo and Co.</h1>
-                <h2>An Accounting, Law and Taxation Firm</h2>
+            <div class="hero-panel" id="heroPanel">
+                <div class="hero-titles">
+                    <h1>Cruz, Lontok, Tullao, Abrigo and Co.</h1>
+                    <h2>An Accounting, Law and Taxation Firm</h2>
+                </div>
+                <hr class="hero-divider" aria-hidden="true">
+                <p class="hero-text">
+                    For over a decade, we've helped companies and entrepreneurs navigate
+                    complex finances and legal matters with clarity and confidence.
+                </p>
+                <p class="hero-text secondary">
+                    At Cruz, Lontok, Tullao, Abrigo and Co. (CLTA and Co.), we recognize
+                    that we have great responsibilities towards our clients, their
+                    stakeholders and our people.
+                </p>
             </div>
-            <hr class="hero-divider">
-            <p class="hero-text">
-                For over a decade, we've helped companies and entrepreneurs navigate
-                complex finances and legal matters with clarity and confidence.
-            </p>
-            <p class="hero-text secondary">
-                At Cruz, Lontok, Tullao, Abrigo and Co. (CLTA and Co.), we recognize
-                that we have great responsibilities towards our clients, their
-                stakeholders and our people.
-            </p>
-        </div>
 
-        <button class="hero-arrow left" id="heroPrev">&#10094;</button>
-        <button class="hero-arrow right" id="heroNext">&#10095;</button>
+            <button class="hero-arrow left" id="heroPrev" aria-label="Previous slide">&#10094;</button>
+            <button class="hero-arrow right" id="heroNext" aria-label="Next slide">&#10095;</button>
 
-        <div class="hero-dots" id="heroDots"></div>
-    </section>
+            <div class="hero-dots" id="heroDots" role="tablist" aria-label="Slide indicators"></div>
+        </section>
 
-    <a href="#what-we-do" class="scroll-down" id="scrollArrow">
-        <svg viewBox="0 0 24 24">
-            <path d="M6 9l6 6 6-6" />
-        </svg>
-    </a>
+        <a href="#what-we-do" class="scroll-down" id="scrollArrow" aria-label="Scroll to next section">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+            </svg>
+        </a>
 
-    <section class="services-portal-section" id="what-we-do">
-        <div class="container services-portal-grid">
-            <div class="services-portal-intro">
-                <h2>What We Do</h2>
-                <div class="services-underline-left"></div>
-                <p>We offer a full range of professional services to help your business grow, comply, and succeed through specialized practice matrices built over a decade of local and global enterprise engagement.</p>
-            </div>
-            <div class="services-portal-list">
-                <a href="services.html#assurance" class="service-portal-item">
-                    <div class="service-item-content">
-                        <h3>Assurance Services</h3>
-                        <p>Competent and Trusted</p>
-                    </div>
-                    <div class="service-item-arrow">
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
-                </a>
-                <a href="services.html#taxation" class="service-portal-item">
-                    <div class="service-item-content">
-                        <h3>Taxation Services</h3>
-                        <p>Doing Things Differently</p>
-                    </div>
-                    <div class="service-item-arrow">
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
-                </a>
-                <a href="services.html#legal" class="service-portal-item">
-                    <div class="service-item-content">
-                        <h3>Legal Services</h3>
-                        <p>Making Things Happen</p>
-                    </div>
-                    <div class="service-item-arrow">
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
-                </a>
-                <a href="services.html#bpo" class="service-portal-item">
-                    <div class="service-item-content">
-                        <h3>Business Process Outsourcing Solutions</h3>
-                        <p>Quality at the Right Price</p>
-                    </div>
-                    <div class="service-item-arrow">
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <hr class="gray-divider">
-
-    <section class="about">
-        <div class="container about-split">
-            <div class="about-main-content">
-                <h2>About Us</h2>
-                <p class="about-tagline">Bridging Professional Finance, Law, and Strategy to Protect Your Business Interests.</p>
-                <p>CLTA and Co. was established on June 1, 2015 to be a one-stop shop for all your needs. May it be Accounting, Assurance, Business Processes, Corporate and Business Law, or Taxation, we have the expert partners and staff who can serve you.</p>
-                <p>We consist of professionals – lawyers and certified public accountants, who joined together to serve the best interest of businesses.</p>
-                <p>We are committed to providing quality services to our clients, and we are dedicated to building long-term relationships with them. We understand that every business is unique, and we work closely with our clients to understand their specific needs and goals.</p>
-            </div>
-            <div class="about-experience-block">
-                <div class="exp-number">17+</div>
-                <div class="exp-text">
-                    <h4>Years of Professional Practice</h4>
-                    <p>Within and outside the Philippines, our partners focus on maximizing resources, minimizing tax liabilities, and streamlining complex government compliance.</p>
+        <section class="services-portal-section" id="what-we-do">
+            <div class="container services-portal-grid">
+                <div class="services-portal-intro">
+                    <h2>What We Do</h2>
+                    <div class="services-underline-left" aria-hidden="true"></div>
+                    <p>We offer a full range of professional services to help your business grow, comply, and succeed through specialized practice matrices built over a decade of local and global enterprise experience. Our integrated approach combines accounting expertise, legal counsel, and strategic taxation planning to maximize your business potential.</p>
+                </div>
+                <div class="services-portal-list">
+                    <a href="services.html#assurance" class="service-portal-item">
+                        <div class="service-item-content">
+                            <h3>Assurance Services</h3>
+                            <p>Competent and Trusted</p>
+                        </div>
+                        <div class="service-item-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </a>
+                    <a href="services.html#taxation" class="service-portal-item">
+                        <div class="service-item-content">
+                            <h3>Taxation Services</h3>
+                            <p>Doing Things Differently</p>
+                        </div>
+                        <div class="service-item-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </a>
+                    <a href="services.html#legal" class="service-portal-item">
+                        <div class="service-item-content">
+                            <h3>Legal Services</h3>
+                            <p>Making Things Happen</p>
+                        </div>
+                        <div class="service-item-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </a>
+                    <a href="services.html#bpo" class="service-portal-item">
+                        <div class="service-item-content">
+                            <h3>Business Process Outsourcing Solutions</h3>
+                            <p>Quality at the Right Price</p>
+                        </div>
+                        <div class="service-item-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="container industry-wrapper">
-            <h3>Our Industry Expertise</h3>
-            <p class="industry-subtext">We have in-depth and vast knowledge in various industries which include, but not limited to the following:</p>
-            <ul class="industry-grid">
-                <li><svg class="ind-arrow" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Agriculture</li>
-                <li><svg class="ind-arrow" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Cooperatives</li>
-                <li><svg class="ind-arrow" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Emerging & Growth Markets</li>
-                <li><svg class="ind-arrow" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Hospitals</li>
-                <li><svg class="ind-arrow" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Hotels & Restaurants</li>
-                <li><svg class="ind-arrow" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Manufacturing</li>
-                <li><svg class="ind-arrow" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Non-Profit Organizations</li>
-                <li><svg class="ind-arrow" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>PEZA-Registered Enterprises</li>
-                <li><svg class="ind-arrow" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Real Estate</li>
-                <li><svg class="ind-arrow" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Retail & Wholesale</li>
-            </ul>
-        </div>
-    </section>
+        <hr class="gray-divider" aria-hidden="true">
 
-    <section class="mv-section">
-        <div class="mv-container">
-            <div class="mv-box">
-                <div class="mv-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg>
+        <section class="about">
+            <div class="container about-split">
+                <div class="about-main-content">
+                    <h2>About Us</h2>
+                    <p class="about-tagline">Bridging Professional Finance, Law, and Strategy to Protect Your Business Interests.</p>
+                    <p>CLTA and Co. was established on June 1, 2015 to be a one-stop shop for all your professional service needs. Whether you require Accounting, Assurance, Business Processes, Corporate and Business Law, or Taxation services, our team is equipped to deliver comprehensive solutions tailored to your business.</p>
+                    <p>We consist of professionals – lawyers and certified public accountants – who joined together to serve the best interests of businesses. Our combined expertise spans multiple industries and business sizes, enabling us to understand the unique challenges you face.</p>
+                    <p>We are committed to providing quality services to our clients, and we are dedicated to building long-term relationships with them. We understand that every business is unique, and we customize our approach to align with your specific goals and compliance requirements.</p>
                 </div>
-                <h3>Our Mission</h3>
-                <p>CLTA and Co. is committed to provide professional assurance, taxation and legal services and business process outsourcing solutions and to help its clients achieve and exceed their expected outcome in every engagement.</p>
-            </div>
-            <div class="mv-divider"></div>
-            <div class="mv-box">
-                <div class="mv-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                <div class="about-experience-block">
+                    <div class="exp-number">17+</div>
+                    <div class="exp-text">
+                        <h3>Years of Professional Practice</h3>
+                        <p>Within and outside the Philippines, our partners focus on maximizing resources, minimizing tax liabilities, and streamlining complex government compliance.</p>
+                    </div>
                 </div>
-                <h3>Our Vision</h3>
-                <p>To be the nation's business essential and a leading partner of entrepreneurs and business visionaries, guiding and helping them in achieving their successes.</p>
             </div>
-        </div>
-    </section>
 
-    <section class="values-section">
-        <div class="values-header">
-            <h2>Our Core Values</h2>
-            <div class="values-underline"></div>
-        </div>
-        <p class="values-subtext">Because we know how important it is for you to succeed in businesses, we have an offer that will bring you next to success.</p>
-        <div class="values-container">
-            <div class="value-card">
-                <div class="value-letter">C</div>
-                <div class="value-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                </div>
-                <h4>Competence and Integrity</h4>
-                <p>We bring deep expertise and professional excellence to every engagement, ensuring our clients receive the highest standard of service.</p>
+            <div class="container industry-wrapper">
+                <h2>Our Industry Expertise</h2>
+                <p class="industry-subtext">We have in-depth and vast knowledge in various industries which include, but not limited to the following:</p>
+                <ul class="industry-grid">
+                    <li><svg class="ind-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Agriculture</li>
+                    <li><svg class="ind-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Cooperatives</li>
+                    <li><svg class="ind-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Emerging & Growth Markets</li>
+                    <li><svg class="ind-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Hospitals</li>
+                    <li><svg class="ind-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Hotels & Restaurants</li>
+                    <li><svg class="ind-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Manufacturing</li>
+                    <li><svg class="ind-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Non-Profit Organizations</li>
+                    <li><svg class="ind-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>PEZA-Registered Enterprises</li>
+                    <li><svg class="ind-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Real Estate</li>
+                    <li><svg class="ind-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Retail & Wholesale</li>
+                </ul>
             </div>
-            <div class="value-card">
-                <div class="value-letter">L</div>
-                <div class="value-icon">
-                    <svg viewBox="0 0 24 24"><path d="M2 22h20v-2H2v2zm1-3h18V10l-4 4-5-9-5 9-4-4v9zm8-11.23l1.54 2.77h-3.09L11 7.77z"/></svg>
+        </section>
+
+        <section class="mv-section">
+            <div class="mv-container">
+                <div class="mv-box">
+                    <div class="mv-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>CLTA and Co. is committed to providing professional assurance, taxation and legal services and business process outsourcing solutions to help our clients achieve and exceed their business objectives. We strive to be a trusted advisor, delivering value through quality expertise and innovative solutions.</p>
                 </div>
-                <h4>Leadership and Compassion</h4>
-                <p>We lead with purpose and vision, guiding our clients and our people toward sustainable growth and meaningful impact.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-letter">T</div>
-                <div class="value-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 21L8 9l4 6 3-4 8 10H1z"/></svg>
+                <div class="mv-divider" aria-hidden="true"></div>
+                <div class="mv-box">
+                    <div class="mv-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be the nation's business essential and a leading partner of entrepreneurs and business visionaries, guiding and helping them in achieving their successes.</p>
                 </div>
-                <h4>Trustworthiness and Adaptability</h4>
-                <p>We build lasting relationships grounded in honesty, transparency, and unwavering commitment to our clients' best interests.</p>
             </div>
-            <div class="value-card">
-                <div class="value-letter">A</div>
-                <div class="value-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+        </section>
+
+        <section class="values-section">
+            <div class="values-header">
+                <h2>Our Core Values</h2>
+                <div class="values-underline" aria-hidden="true"></div>
+            </div>
+            <p class="values-subtext">Because we know how important it is for you to succeed in business, we embody values that guide our every decision and interaction.</p>
+            <div class="values-container">
+                <div class="value-card">
+                    <div class="value-letter">C</div>
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    </div>
+                    <h3>Competence and Integrity</h3>
+                    <p>We bring deep expertise and professional excellence to every engagement, ensuring our clients receive the highest standard of service with unwavering ethical standards.</p>
                 </div>
-                <h4>Accountability and Commitment</h4>
-                <p>We take full responsibility for our work and our outcomes, holding ourselves to the highest ethical and professional standards.</p>
+                <div class="value-card">
+                    <div class="value-letter">L</div>
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 22h20v-2H2v2zm1-3h18V10l-4 4-5-9-5 9-4-4v9zm8-11.23l1.54 2.77h-3.09L11 7.77z"/></svg>
+                    </div>
+                    <h3>Leadership and Compassion</h3>
+                    <p>We lead with purpose and vision, guiding our clients and our people toward sustainable growth and meaningful impact in their industries and communities.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-letter">T</div>
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1 21L8 9l4 6 3-4 8 10H1z"/></svg>
+                    </div>
+                    <h3>Trustworthiness and Adaptability</h3>
+                    <p>We build lasting relationships grounded in honesty, transparency, and unwavering commitment to our clients' best interests in an ever-evolving business landscape.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-letter">A</div>
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+                    </div>
+                    <h3>Accountability and Commitment</h3>
+                    <p>We take full responsibility for our work and our outcomes, holding ourselves to the highest ethical and professional standards in service to our clients.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2026 <span>Cruz, Lontok, Tullao, Abrigo and Co.</span> All rights reserved.</p>
     </footer>
 
-    <script>
-        // Nav active link
-        const links = document.querySelectorAll('nav ul li a');
-        const currentFilename = window.location.pathname.split('/').pop();
-        links.forEach(link => {
-            const linkFilename = link.getAttribute('href');
-            if (currentFilename === linkFilename) {
-                link.classList.add('active');
-            } else if ((currentFilename === '' || currentFilename === 'index.html') && linkFilename === 'index.html') {
-                link.classList.add('active');
-            }
-        });
-    </script>
-
-    <script>
-        // Hero panel slide-in
-        window.addEventListener('load', () => {
-            document.getElementById('heroPanel').classList.add('visible');
-        });
-    </script>
-
-    <script>
-        // Scroll arrow hide at bottom
-        const scrollArrow = document.getElementById('scrollArrow');
-        window.addEventListener('scroll', () => {
-            const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 150;
-            if (scrolledToBottom) {
-                scrollArrow.classList.add('hidden');
-            } else {
-                scrollArrow.classList.remove('hidden');
-            }
-        });
-    </script>
-
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
-
-    <script>
-        // Hero slideshow
-        const slides = [
-            { src: 'images/brg.jpg',  position: 'center center' },
-            { src: 'images/brg2.jpg', position: 'center center' },
-            { src: 'images/brg3.jpg', position: 'center center' },
-            { src: 'images/brg4.jpg', position: 'center center' }
-        ];
-        let current = 0;
-        const bgImg = document.getElementById('heroBgImg');
-        const dotsContainer = document.getElementById('heroDots');
-
-        slides.forEach((_, i) => {
-            const dot = document.createElement('span');
-            dot.classList.add('hero-dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goTo(i));
-            dotsContainer.appendChild(dot);
-        });
-
-        function updateDots() {
-            document.querySelectorAll('.hero-dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === current);
-            });
-        }
-
-        function goTo(index) {
-            current = (index + slides.length) % slides.length;
-            bgImg.style.opacity = '0';
-            setTimeout(() => {
-                bgImg.src = slides[current].src;
-                bgImg.style.objectPosition = slides[current].position;
-                bgImg.style.opacity = '1';
-            }, 300);
-            updateDots();
-        }
-
-        document.getElementById('heroPrev').addEventListener('click', () => goTo(current - 1));
-        document.getElementById('heroNext').addEventListener('click', () => goTo(current + 1));
-    </script>
-
-    <script>
-        // Hamburger sidebar
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-        const closeMenu = document.getElementById('closeMenu');
-        const overlay = document.getElementById('sidebarOverlay');
-
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.add('open');
-            overlay.classList.add('active');
-        });
-
-        closeMenu.addEventListener('click', () => {
-            navMenu.classList.remove('open');
-            overlay.classList.remove('active');
-        });
-
-        overlay.addEventListener('click', () => {
-            navMenu.classList.remove('open');
-            overlay.classList.remove('active');
-        });
-
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('open');
-                overlay.classList.remove('active');
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
