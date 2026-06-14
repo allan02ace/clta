@@ -8,22 +8,30 @@
 </head>
 <body>
 
-    <div class="top-bar"></div>
+   <div class="top-bar"></div>
 
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="images/logo.png" alt="CLTA & Co. Logo">
-            </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="team.html">Our Team</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="images/logo.png" alt="CLTA & Co. Logo">
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
+            <button class="close-menu" id="closeMenu" aria-label="Close menu">✕</button>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
 
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
     <section class="hero">
         <img src="images/brg.jpg" class="hero-bg-img" id="heroBgImg" 
      style="object-position: center center;" alt="">
@@ -295,6 +303,35 @@
         document.getElementById('heroNext').addEventListener('click', () => goTo(current + 1));
     </script>
     
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const overlay = document.getElementById('sidebarOverlay');
 
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.add('open');
+        overlay.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        overlay.classList.remove('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        overlay.classList.remove('active');
+    });
+
+    // Close on nav link click
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+    });
+</script>
+    
 </body>
 </html>
