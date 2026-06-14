@@ -832,13 +832,17 @@ footer span { color: #c81010; }
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.15);
-        z-index: 2999;
+        background: rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        z-index: 1999;        /* 💡 Drops overlay directly below the header (2000) */
+        pointer-events: none; /* 💡 Prevents accidental click capture when closing */
     }
 
     .sidebar-overlay.active {
         display: block;
-    }
+        pointer-events: auto; /* 💡 Only captures clicks on the empty space outside the sidebar */
+}
 
     /* Hero */
     .hero {
