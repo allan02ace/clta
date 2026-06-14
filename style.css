@@ -770,6 +770,9 @@ footer span { color: #c81010; }
         z-index: 3000;
         transition: right 0.35s cubic-bezier(0.77, 0, 0.175, 1);
         box-shadow: -4px 0 20px rgba(0,0,0,0.3);
+
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
 
     nav ul#navMenu.open {
