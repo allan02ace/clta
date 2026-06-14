@@ -725,8 +725,8 @@ footer span { color: #c81010; }
         left: auto;
     }
 
-    /* Hide desktop nav links */
-    nav ul {
+    /* Hide desktop nav links - but NOT the sidebar menu */
+    nav ul:not(#navMenu) {
         display: none;
     }
 
