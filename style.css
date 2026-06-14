@@ -798,18 +798,22 @@ footer span { color: #c81010; }
     }
 
     /* Close button */
+    .close-item {
+        border-bottom: none !important;
+        text-align: right;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
     .close-menu {
         display: block;
-        position: absolute;
-        top: 16px;
-        right: 16px;
         background: transparent;
         border: none;
         color: #aaa;
         font-size: 22px;
         cursor: pointer;
         line-height: 1;
-        z-index: 3100;
+        padding: 8px 0;
     }
 
     .close-menu:hover { color: #ff4444; }
