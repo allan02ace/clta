@@ -1,0 +1,224 @@
+/* ==========================================
+   CONTACT PAGE DESIGN - CLTA & CO.
+   ========================================== */
+
+/* Page Banner Section */
+.page-banner {
+    background: #1a1a1a; /* Matches the dark section of your MV container */
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 4px solid #a00000;
+}
+
+.page-banner h1 {
+    font-size: 42px;
+    color: #ffffff;
+    font-family: 'Aptos', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.page-banner p {
+    font-size: 16px;
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contact Section Grid Layout */
+.contact-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    background: #ffffff;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* Premium Office Info Cards */
+.contact-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #a00000;
+    padding: 40px 30px 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/* Custom interactive locator bullet */
+.contact-icon {
+    font-size: 14px;
+    color: #a00000;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.4);
+}
+
+.contact-card-top h3 {
+    font-size: 22px;
+    color: #111;
+    font-weight: 700;
+}
+
+.contact-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+/* Telephone block highlight */
+.contact-tel {
+    font-weight: 700;
+    color: #a00000 !important;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Clean Google Maps Canvas Layout */
+.map-container {
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.map-container iframe {
+    display: block;
+    filter: grayscale(10%) contrast(95%); /* Slightly desaturated look to fit corporate aesthetic */
+    transition: filter 0.3s ease;
+}
+
+.contact-card:hover .map-container iframe {
+    filter: grayscale(0%) contrast(100%);
+}
+
+/* ==========================================
+   EMAIL & SOCIAL FOOTER BLOCKS
+   ========================================== */
+
+.contact-bottom {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    border-top: 1px solid #eaeaea;
+    padding-top: 50px;
+}
+
+.contact-email-block h3,
+.contact-social-block h3 {
+    font-size: 20px;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* Email Directory List */
+.contact-email-block ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    grid-template-columns;
+    gap: 12px;
+}
+
+.contact-email-block ul li a {
+    font-size: 16px;
+    color: #a00000;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block; /* Crucial: allows padding animations to work smoothly */
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.contact-email-block ul li a:hover {
+    color: #222222; /* Fixed: standard hover color shift instead of broken gradient */
+    transform: translateX(4px); /* Smoother alternative to padding-left for animations */
+    
+}
+
+/* Corporate Social Widget Link */
+.fb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 14px 24px;
+    border-radius: 4px;
+    color: #334155;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    max-width: max-content;
+}
+
+.fb-icon {
+    background: #1877f2; /* Verified Official Facebook Blue */
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1;
+    padding-bottom: 2px;
+}
+
+.fb-link:hover {
+    background: #ffffff;
+    border-color: #1877f2;
+    color: #1877f2;
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.12);
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (TABLETS & PHONES)
+   ========================================== */
+
+@media (max-width: 768px) {
+    .contact-grid,
+    .contact-bottom {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .contact-email-block ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-page {
+        padding: 40px 20px;
+    }
+}

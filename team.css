@@ -1,0 +1,244 @@
+/* ── Team Page ── */
+.team-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+/* 1 & 4. FIXED THE GLASS HEADER & BANNER OVERLAP COLLISION */
+header {
+    background: rgba(255, 255, 255, 0.85) !important; /* Semi-transparent white */
+    backdrop-filter: blur(12px) !important;           /* Frosted glass blur effect */
+    -webkit-backdrop-filter: blur(12px) !important;   /* Safari fallback support */
+    height: 60px;
+    position: fixed;
+    top: 30px; /* Sits cleanly below your red top-bar */
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Removed position: absolute to allow the banner to sit naturally below the glass header */
+.page-banner {
+    background: #1a1a1a; /* Professional dark canvas block */
+    padding: 50px 40px;
+    margin-top: 0px; 
+    border-bottom: 4px solid #a00000;
+}
+
+.page-banner h1 {
+    font-size: 38px;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.page-banner p {
+    font-size: 15px;
+    color: #cccccc;
+    margin: 0;
+}
+
+/* Section labels like "Partners", "Associates" */
+.team-section-label {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;;
+    color: #a00000;
+    margin: 30px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #f0f0f0;
+}
+.team-section-label.centered {
+    text-align: center;
+}
+
+/* Row of cards */
+.team-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* 3. FIX THE PARTNERS ROW TO BE PERFECTLY CENTERED */
+.partners-row {
+    display: flex;
+    justify-content: center; /* Forces cards to align to the horizontal center */
+    gap: 24px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Individual card */
+.team-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-top: 3px solid #c81010;
+    width: 160px;
+    padding: 20px 14px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+}
+
+/* Partner card slightly bigger */
+.partner-card {
+    width: 200px;
+    border-top: 3px solid #8b0000;
+}
+
+/* 2. RETAINED ALL EXACT ORIGINAL PICTURE FRAME DIMENSIONS */
+.team-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    overflow: hidden;
+}
+
+.team-photo img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.team-photo.placeholder {
+    background: #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-photo.placeholder::after {
+    content: "👤";
+    font-size: 36px;
+    opacity: 0.4;
+}
+
+/* Partner photo dimensions strictly preserved */
+.partner-card .team-photo {
+    width: 100px;
+    height: 100px;
+}
+
+.team-info h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #222;
+    font-family: Arial, sans-serif;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.team-title {
+    display: block;
+    font-size: 10px;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 5px;
+}
+
+.partner-title {
+    color: #a00000;
+    font-weight: 700;
+}
+
+.team-email {
+    display: block;
+    font-size: 11px;
+    color: #c81010;
+    text-decoration: none;
+    word-break: break-all;
+    margin-top: 6px;
+}
+
+.team-email:hover {
+    text-decoration: underline;
+}
+
+/* Department tags on partner cards */
+.team-dept {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 6px;
+}
+
+.assurance-tag {
+    background: #fff0f0;
+    color: #a00000;
+    border: 1px solid #f5c0c0;
+}
+
+.legal-tag {
+    background: #f0f0ff;
+    color: #00008b;
+    border: 1px solid #c0c0f5;
+}
+
+/* Divider between partners and departments */
+.dept-divider {
+    border: none;
+    border-top: 2px solid #f0f0f0;
+    margin: 40px 0;
+}
+
+/* Two department columns */
+.dept-columns {
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+}
+
+.dept-column {
+    flex: 1;
+    min-width: 0;
+}
+
+.dept-col-divider {
+    width: 1px;
+    background: #e0e0e0;
+    margin: 0 40px;
+    align-self: stretch;
+}
+
+/* 5. IMPLEMENTED SAPIENT GRADIENT DEPARTMENT HEADERS */
+.dept-header {
+    padding: 18px 24px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+}
+
+.assurance-header {
+    background: linear-gradient(135deg, #8b0000, #c81010); /* Corporate Wine to Bright Crimson Red */
+}
+
+.legal-header {
+    background: linear-gradient(135deg, #00004d, #00008b); /* Deep Regal Midnight Navy Blue */
+}
+
+.dept-header h2 {
+    font-size: 18px; /* Slightly lowered to fit comfortably within colored block plates */
+    font-weight: 700;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* Force header typography to render bright white over the new rich gradient containers */
+.assurance-header h2,
+.legal-header h2 {
+    color: #ffffff;
+}

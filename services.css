@@ -1,0 +1,150 @@
+/* ── Page Banner (shared, also used in contact) ── */
+.page-banner {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px 70px;
+    border-bottom: 4px solid #c81010;
+}
+
+.page-banner h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.page-banner p {
+    font-size: 18px;
+    color: #ccc;
+}
+
+/* ── Services Page Layout ── */
+.services-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 40px;
+}
+
+.service-block {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.service-number {
+    font-size: 72px;
+    font-weight: 900;
+    color: #e8e8e8;
+    line-height: 1;
+    min-width: 80px;
+    font-family: Arial, sans-serif;
+}
+
+.service-content h2 {
+    font-size: 30px;
+    color: #a00000;
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.service-content p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    max-width: 800px;
+}
+
+/* ── Level 1: Main Services (Clean Chevron) ── */
+.service-list {
+    list-style: none; /* Kills default list bullet engine */
+    padding-left: 0;
+    margin-top: 14px;
+}
+
+.service-list > li {
+    font-size: 16px;
+    color: #222222;
+    padding: 6px 0;
+    font-weight: 600;
+    line-height: 1.6;
+    list-style-type: none; /* Extra local reset protection */
+}
+
+.service-list > li::before {
+    content: "›";
+    color: #c81010;
+    font-weight: 700;
+    font-size: 20px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+/* ── Level 2: Sublists (Classic Small Dot) ── */
+.service-sublist {
+    list-style: none; /* Kills default sublist hollow circles */
+    padding-left: 24px; /* Structured indent step */
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.service-sublist li {
+    font-size: 15px;
+    color: #444444;
+    padding: 4px 0;
+    font-weight: 500;
+    list-style-type: none; /* Strips browser ghost bullet tokens */
+}
+
+.service-sublist li::before {
+    content: "•";
+    color: #555555; /* Neutral charcoal gray lets primary chevrons pop */
+    font-size: 14px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* ── Level 3: Deep Sublists (Hyphen-Minus Thread) ── */
+.service-sublist-2 {
+    list-style: none; /* Kills default square blocks */
+    padding-left: 24px; /* Second inward alignment layout step */
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.service-sublist-2 li {
+    font-size: 14px;
+    color: #666666;
+    padding: 4px 0;
+    font-weight: 400;
+    list-style-type: none;
+}
+
+.service-sublist-2 li::before {
+    content: "⁃";
+    color: #c81010; /* Accent contrast highlights back to brand red */
+    font-size: 16px;
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* ── Structural Separators & Accents ── */
+.service-divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 40px 0;
+}
+
+.service-note {
+    margin-top: 24px;
+    font-style: italic;
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.6;
+}

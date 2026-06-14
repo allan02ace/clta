@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — CLTA & Co.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <div class="top-bar"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="CLTA & Co. Logo">
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="team.html">Our Team</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you. Reach out to any of our offices.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-page">
+
+        <!-- Offices -->
+        <div class="contact-grid">
+
+            <!-- QC Office -->
+            <div class="contact-card">
+                <div class="contact-card-top">
+                    <div class="contact-icon">&#9679;</div>
+                    <h3>Quezon City Office</h3>
+                </div>
+                <p>Corporate 145 Building, Unit 1419,<br>
+                145 Mother Ignacia Avenue, South Triangle,<br>
+                Quezon City, Metro Manila, 1103, Philippines</p>
+                <p class="contact-tel">&#128222; (02) 8351-8380</p>
+                <!-- Google Maps embed — QC office -->
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.2715973873214!2d121.03325087468443!3d14.640518185850556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b7766deb3f35%3A0xcfbe288b0e868712!2sCLTA%20%26%20Co.!5e0!3m2!1sen!2sph!4v1781272678216!5m2!1sen!2sph"
+                        width="100%"
+                        height="220"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Santiago Office -->
+            <div class="contact-card">
+                <div class="contact-card-top">
+                    <div class="contact-icon">&#9679;</div>
+                    <h3>Santiago City Office</h3>
+                </div>
+                <p>Insular Life Building, 2nd Floor,<br>
+                Maharlika Highway, Villasis,<br>
+                Santiago City, Isabela, 3311, Philippines</p>
+                <p class="contact-tel">&#128222; (078) 682-0258</p>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.7322327968814!2d121.55102307473105!3d16.690277584082853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3390061bf8f8c19d%3A0xa3b8a2dc94ac1bf4!2sCLTA%20%26%20Co.!5e0!3m2!1sen!2sph!4v1781272822425!5m2!1sen!2sph"
+                        width="100%"
+                        height="220"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Email & Social -->
+        <div class="contact-bottom">
+
+            <div class="contact-email-block">
+                <h3>&#9993; Email Us</h3>
+                <ul>
+                    <li><a href="mailto:info@cltafirm.com">info@cltafirm.com</a></li>
+                    <li><a href="mailto:hr@cltafirm.com">hr@cltafirm.com</a></li>
+                    <li><a href="mailto:finance@cltafirm.com">finance@cltafirm.com</a></li>
+                </ul>
+            </div>
+
+            <div class="contact-social-block">
+                <h3>&#128279; Follow Us</h3>
+                <a href="https://www.facebook.com/cltafirm" target="_blank" class="fb-link">
+                    <span class="fb-icon">f</span> facebook.com/cltafirm
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+     // Highlights the nav link matching the current page dynamically
+const links = document.querySelectorAll('nav ul li a');
+
+// Extract just the filename from the browser's current address bar
+const currentFilename = window.location.pathname.split('/').pop();
+
+links.forEach(link => {
+    // Extract just the filename from the link's href attribute
+    const linkFilename = link.getAttribute('href');
+    
+    // Exact structural check matching current document file tokens
+    if (currentFilename === linkFilename) {
+        link.classList.add('active');
+    } else if ((currentFilename === '' || currentFilename === 'index.html') && linkFilename === 'index.html') {
+        // Fallback catch-all case for base folder directory roots
+        link.classList.add('active');
+    }
+});
+    </script>
+    
+
+    <footer>
+        <p>&copy; 2026 <span>Cruz, Lontok, Tullao, Abrigo and Co.</span> All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
