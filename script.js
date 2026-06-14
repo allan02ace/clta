@@ -80,24 +80,30 @@ const navMenu = document.getElementById('navMenu');
 const closeMenu = document.getElementById('closeMenu');
 const overlay = document.getElementById('sidebarOverlay');
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.add('open');
-    overlay.classList.add('active');
-});
+if (hamburger && navMenu && closeMenu && overlay) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.add('open');
+        overlay.classList.add('active');
+    });
 
-closeMenu.addEventListener('click', () => {
-    navMenu.classList.remove('open');
-    overlay.classList.remove('active');
-});
-
-overlay.addEventListener('click', () => {
-    navMenu.classList.remove('open');
-    overlay.classList.remove('active');
-});
-
-navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
+    closeMenu.addEventListener('click', () => {
         navMenu.classList.remove('open');
         overlay.classList.remove('active');
     });
-});
+
+    overlay.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        overlay.classList.remove('active');
+    });
+
+    // 💡 ONLY close the sidebar automatically if the link is an in-page anchor link (starts with #)
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                navMenu.classList.remove('open');
+                overlay.classList.remove('active');
+            }
+        });
+    });
+}
