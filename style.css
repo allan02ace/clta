@@ -752,8 +752,7 @@ footer span { color: #c81010; }
         transition: all 0.3s ease;
     }
 
-    /* Sidebar nav */
-    nav ul#navMenu {
+    /* Sidebar nav */nav ul#navMenu {
         display: flex;
         position: fixed;
         top: 0;
@@ -762,13 +761,64 @@ footer span { color: #c81010; }
         height: 100vh;
         background: #1a1a1a;
         flex-direction: column;
-        padding: 70px 30px 30px;
+        padding: 20px 30px 30px;
         margin: 0;
         list-style: none;
         gap: 0;
         z-index: 3000;
         transition: right 0.35s cubic-bezier(0.77, 0, 0.175, 1);
         box-shadow: -4px 0 20px rgba(0,0,0,0.3);
+    }
+
+    nav ul#navMenu.open {
+        right: 0;
+    }
+
+    nav ul#navMenu li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        display: block;
+        width: 100%;
+    }
+
+    nav ul#navMenu li a {
+        display: block;
+        padding: 16px 0;
+        color: #ffffff !important;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    nav ul#navMenu li a:hover {
+        color: #ff4444 !important;
+    }
+
+    nav ul#navMenu li a::after {
+        display: none;
+    }
+
+    .close-item {
+        border-bottom: none !important;
+        text-align: right;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .close-menu {
+        display: block;
+        background: transparent;
+        border: none;
+        color: #aaa;
+        font-size: 26px;
+        cursor: pointer;
+        line-height: 1;
+        padding: 8px 0;
+        width: 100%;
+        text-align: right;
+    }
+
+    .close-menu:hover { color: #ff4444; }
     }
 
     nav ul#navMenu.open {
