@@ -835,7 +835,7 @@ footer span { color: #c81010; }
         background: rgba(0,0,0,0.15);
         backdrop-filter: blur(3px);      /* 💡 Optional: Adds a premium blurred glass effect to the background page */
         -webkit-backdrop-filter: blur(3px);
-        z-index: 1999;
+        z-index: 1999px;
     }
 
     .sidebar-overlay.active {
