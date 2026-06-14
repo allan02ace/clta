@@ -10,21 +10,26 @@ links.forEach(link => {
     }
 });
 
-// Hero panel slide-in
-window.addEventListener('load', () => {
-    document.getElementById('heroPanel').classList.add('visible');
-});
+// Hero panel slide-in (Guarded)
+const heroPanel = document.getElementById('heroPanel');
+if (heroPanel) {
+    window.addEventListener('load', () => {
+        heroPanel.classList.add('visible');
+    });
+}
 
-// Scroll arrow hide at bottom
+// Scroll arrow hide at bottom (Guarded)
 const scrollArrow = document.getElementById('scrollArrow');
-window.addEventListener('scroll', () => {
-    const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 150;
-    if (scrolledToBottom) {
-        scrollArrow.classList.add('hidden');
-    } else {
-        scrollArrow.classList.remove('hidden');
-    }
-});
+if (scrollArrow) {
+    window.addEventListener('scroll', () => {
+        const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 150;
+        if (scrolledToBottom) {
+            scrollArrow.classList.add('hidden');
+        } else {
+            scrollArrow.classList.remove('hidden');
+        }
+    });
+}
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -35,46 +40,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Hero slideshow
-const slides = [
-    { src: 'images/brg.jpg',  position: 'center center' },
-    { src: 'images/brg2.jpg', position: 'center center' },
-    { src: 'images/brg3.jpg', position: 'center center' },
-    { src: 'images/brg4.jpg', position: 'center center' }
-];
-let current = 0;
+// Hero slideshow (Guarded: Only runs if slideshow elements exist)
 const bgImg = document.getElementById('heroBgImg');
 const dotsContainer = document.getElementById('heroDots');
 
-slides.forEach((_, i) => {
-    const dot = document.createElement('span');
-    dot.classList.add('hero-dot');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goTo(i));
-    dotsContainer.appendChild(dot);
-});
+if (bgImg && dotsContainer) {
+    const slides = [
+        { src: 'images/brg.jpg',  position: 'center center' },
+        { src: 'images/brg2.jpg', position: 'center center' },
+        { src: 'images/brg3.jpg', position: 'center center' },
+        { src: 'images/brg4.jpg', position: 'center center' }
+    ];
+    let current = 0;
 
-function updateDots() {
-    document.querySelectorAll('.hero-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === current);
+    slides.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.classList.add('hero-dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
     });
+
+    function updateDots() {
+        document.querySelectorAll('.hero-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === current);
+        });
+    }
+
+    function goTo(index) {
+        current = (index + slides.length) % slides.length;
+        bgImg.style.opacity = '0';
+        setTimeout(() => {
+            bgImg.src = slides[current].src;
+            bgImg.style.objectPosition = slides[current].position;
+            bgImg.style.opacity = '1';
+        }, 300);
+        updateDots();
+    }
+
+    const heroPrev = document.getElementById('heroPrev');
+    const heroNext = document.getElementById('heroNext');
+    if (heroPrev) heroPrev.addEventListener('click', () => goTo(current - 1));
+    if (heroNext) heroNext.addEventListener('click', () => goTo(current + 1));
 }
 
-function goTo(index) {
-    current = (index + slides.length) % slides.length;
-    bgImg.style.opacity = '0';
-    setTimeout(() => {
-        bgImg.src = slides[current].src;
-        bgImg.style.objectPosition = slides[current].position;
-        bgImg.style.opacity = '1';
-    }, 300);
-    updateDots();
-}
-
-document.getElementById('heroPrev').addEventListener('click', () => goTo(current - 1));
-document.getElementById('heroNext').addEventListener('click', () => goTo(current + 1));
-
-// Hamburger sidebar
+// Hamburger sidebar (Guarded)
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 const closeMenu = document.getElementById('closeMenu');
@@ -96,7 +106,7 @@ if (hamburger && navMenu && closeMenu && overlay) {
         overlay.classList.remove('active');
     });
 
-    // 💡 ONLY close the sidebar automatically if the link is an in-page anchor link (starts with #)
+    // ONLY close the sidebar automatically if the link is an in-page anchor link (starts with #)
     navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
