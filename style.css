@@ -457,7 +457,7 @@ nav ul li a.active {
     font-family: 'Aptos', Arial, sans-serif;
 }
 
-.exp-text h4 {
+.exp-text h3 {
     font-size: 18px;
     color: #111;
     text-transform: uppercase;
@@ -473,12 +473,13 @@ nav ul li a.active {
 
 .industry-wrapper { margin-top: 40px; }
 
-.industry-wrapper h3 {
-    font-size: 24px;
+.industry-wrapper h2 {
+    font-size: 42px;
     color: #a00000;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .industry-subtext {
@@ -635,7 +636,7 @@ nav ul li a.active {
 
 .value-icon { margin-bottom: 16px; }
 
-.value-card h4 {
+.value-card h3 {
     font-size: 18px;
     font-weight: 700;
     color: #222;
@@ -752,7 +753,8 @@ footer span { color: #c81010; }
         transition: all 0.3s ease;
     }
 
-    /* Sidebar nav */nav ul#navMenu {
+    /* Sidebar nav */
+    nav ul#navMenu {
         display: flex;
         position: fixed;
         top: 0;
@@ -794,6 +796,11 @@ footer span { color: #c81010; }
         color: #ff4444 !important;
     }
 
+    nav ul#navMenu li a.active {
+        color: #ff4444;
+        border-bottom: none;
+    }
+
     nav ul#navMenu li a::after {
         display: none;
     }
@@ -816,54 +823,6 @@ footer span { color: #c81010; }
         padding: 8px 0;
         width: 100%;
         text-align: right;
-    }
-
-    .close-menu:hover { color: #ff4444; }
-    }
-
-    nav ul#navMenu.open {
-        right: 0;
-    }
-
-    nav ul#navMenu li {
-        margin: 0;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    nav ul#navMenu li a {
-        display: block;
-        padding: 16px 0;
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: 500;
-    }
-
-    nav ul#navMenu li a.active {
-        color: #ff4444;
-        border-bottom: none;
-    }
-
-    nav ul#navMenu li a::after {
-        display: none;
-    }
-
-    /* Close button */
-    .close-item {
-        border-bottom: none !important;
-        text-align: right;
-        padding: 0;
-        margin-bottom: 10px;
-    }
-
-    .close-menu {
-        display: block;
-        background: transparent;
-        border: none;
-        color: #aaa;
-        font-size: 22px;
-        cursor: pointer;
-        line-height: 1;
-        padding: 8px 0;
     }
 
     .close-menu:hover { color: #ff4444; }
