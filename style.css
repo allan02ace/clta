@@ -700,3 +700,159 @@ footer span {
     fill: #c81010;
     margin-top: 5px;
 }
+
+/*mobile addition
+
+@media (max-width: 768px) {
+
+    /* ── Navigation ── */
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+        height: auto;
+    }
+
+    nav ul {
+        margin-left: 0;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin-right: 0;
+    }
+
+    nav ul li a {
+        font-size: 15px;
+    }
+
+    .logo img {
+        height: 80px;
+        position: static;
+        top: auto;
+        left: auto;
+    }
+
+    body {
+        padding-top: 60px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column;
+        margin-top: -60px;
+    }
+
+    .hero-bg-img {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .hero-panel {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 4px solid #ff4444;
+        padding: 40px 24px;
+        transform: none;
+        opacity: 1;
+    }
+
+    .hero-panel.visible {
+        transform: none;
+    }
+
+    .hero-arrow.left  { left: 10px; }
+    .hero-arrow.right { right: 10px; }
+
+    .hero-dots {
+        bottom: 270px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    /* ── Services ── */
+    .services-portal-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .services-portal-section {
+        padding: 60px 20px;
+    }
+
+    /* ── About ── */
+    .about-split {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about {
+        padding: 40px 20px;
+    }
+
+    /* ── Mission & Vision ── */
+    .mv-container {
+        flex-direction: column;
+    }
+
+    .mv-divider {
+        width: 100%;
+        height: 1px;
+        margin: 0;
+    }
+
+    .mv-section {
+        padding: 60px 20px;
+    }
+
+    .mv-box {
+        padding: 40px 24px;
+    }
+
+    /* ── Core Values ── */
+    .values-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .values-section {
+        padding: 60px 20px;
+    }
+
+    /* ── Industry Grid ── */
+    .industry-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .values-container {
+        grid-template-columns: 1fr;
+    }
+
+    .industry-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        display: none; /* hide nav on very small screens — add hamburger menu later if needed */
+    }
+
+    .hero-titles h1 {
+        font-size: 18px;
+    }
+
+}
