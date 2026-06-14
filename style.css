@@ -1,8 +1,4 @@
 * {
-    html, body {
-    overflow-x: hidden;
-    max-width: 100%;
-}
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,7 +7,14 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;  /* accounts for your fixed header height */
+    scroll-padding-top: 100px;
+    overflow-x: hidden;
+}
+
+body {
+    padding-top: 90px;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 .top-bar {
@@ -21,25 +24,21 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1001;    /* higher than header */
+    z-index: 1001;
 }
 
 header {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);   /* Safari Support */
+    -webkit-backdrop-filter: blur(12px);
     height: 60px;
     position: fixed;
-    top: 30px;        /* pushes header down below the top-bar */
+    top: 30px;
     left: 0;
     width: 100%;
-    z-index: 2000;    /* higher than top-bar */
+    z-index: 2000;
     overflow: visible;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); /* Softer, elegant shadow */
-}
-
-body {
-    padding-top: 90px;  /* 30px top-bar + 60px header */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 nav {
@@ -56,12 +55,12 @@ nav {
 }
 
 .logo img {
-    height: 140px;      /* Larger than navbar */
+    height: 140px;
     width: auto;
     position: absolute;
-    top: -83px;         /* Move upward */
+    top: -83px;
     left: -130px;
-    z-index: 2000
+    z-index: 2000;
 }
 
 nav ul {
@@ -110,6 +109,28 @@ nav ul li a:hover,
 nav ul li a.active {
     color: #c81010;
 }
+
+/* hamburger — hidden on desktop */
+.hamburger {
+    display: none;
+}
+
+.close-menu {
+    display: none;
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2999;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -118,13 +139,10 @@ nav ul li a.active {
     display: flex;
     align-items: flex-start;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-top: -90px;        /* pulls hero up behind the fixed header */
-    padding-top: 0;        /* keeps inner content below the header */}
+    margin-top: -90px;
+}
 
-    .hero-bg-img {
+.hero-bg-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -136,7 +154,6 @@ nav ul li a.active {
     transition: opacity 0.3s ease;
 }
 
-/* Prev / Next arrows */
 .hero-arrow {
     position: absolute;
     top: 50%;
@@ -156,11 +173,12 @@ nav ul li a.active {
 .hero-arrow:hover {
     background: transparent;
     color: #ff4444;
+    opacity: 1;
 }
+
 .hero-arrow.left  { left: 490px; }
 .hero-arrow.right { right: 20px; }
 
-/* Dots */
 .hero-dots {
     position: absolute;
     bottom: 24px;
@@ -182,7 +200,7 @@ nav ul li a.active {
 .hero-dot.active {
     background: #ff4444;
 }
-/* Left Panel */
+
 .hero-panel {
     position: absolute;
     top: 0;
@@ -194,7 +212,7 @@ nav ul li a.active {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 40px;
+    padding: 120px 40px 60px;
     box-sizing: border-box;
     opacity: 0;
     transform: translateX(-40px);
@@ -206,6 +224,7 @@ nav ul li a.active {
     opacity: 1;
     transform: translateX(0);
 }
+
 .hero-titles h1 {
     color: white;
     font-size: 22px;
@@ -240,8 +259,9 @@ nav ul li a.active {
     font-size: 13px;
     margin: 0;
 }
+
 .scroll-down {
-    position: fixed;        /* changed from absolute — stays on screen */
+    position: fixed;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
@@ -269,24 +289,16 @@ nav ul li a.active {
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    50% {
-        transform: translateX(-50%) translateY(8px);
-    }
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
 }
 
-/* Global Container Utility */
 .container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* ==========================================================================
-   ALTERNATIVE 2: SERVICES PORTAL SPLIT GRID LAYOUT
-   ========================================================================== */
-
+/* Services */
 .services-portal-section {
     background: #ffffff;
     padding: 100px 40px;
@@ -300,7 +312,6 @@ nav ul li a.active {
     align-items: start;
 }
 
-/* Left Column Styling */
 .services-portal-intro h2 {
     font-size: 42px;
     color: #a00000;
@@ -324,7 +335,6 @@ nav ul li a.active {
     line-height: 1.8;
 }
 
-/* Right Column Links Layout */
 .services-portal-list {
     display: flex;
     flex-direction: column;
@@ -369,7 +379,6 @@ nav ul li a.active {
     transition: transform 0.3s ease, stroke 0.2s ease;
 }
 
-/* Portal Link Interactive Hover States */
 .service-portal-item:hover {
     background: #a00000;
     border-color: #a00000;
@@ -377,32 +386,19 @@ nav ul li a.active {
     box-shadow: 0 10px 25px rgba(160, 0, 0, 0.12);
 }
 
-.service-portal-item:hover .service-item-content h3 {
-    color: #ffffff;
-}
-
-.service-portal-item:hover .service-item-content p {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.service-portal-item:hover .service-item-arrow svg {
-    stroke: #ffffff;
-    transform: translateX(4px);
-}
+.service-portal-item:hover .service-item-content h3 { color: #ffffff; }
+.service-portal-item:hover .service-item-content p   { color: rgba(255,255,255,0.8); }
+.service-portal-item:hover .service-item-arrow svg   { stroke: #ffffff; transform: translateX(4px); }
 
 .gray-divider {
     border: 0;
     height: 1px;
-    background-color: #e5e7eb; /* Modern, soft gray */
-    margin: 10px 0;           /* Gutter space above and below the line */
-    width: 100%;              /* Expands to the width of its container */
+    background-color: #e5e7eb;
+    margin: 10px 0;
+    width: 100%;
 }
 
-
-/* ==========================================================================
-   ABOUT US SECTION & INDUSTRY MATRICES
-   ========================================================================== */
-
+/* About */
 .about {
     background: #fff;
     padding: 40px 40px;
@@ -475,9 +471,7 @@ nav ul li a.active {
     color: #555;
 }
 
-.industry-wrapper {
-    margin-top: 40px;
-}
+.industry-wrapper { margin-top: 40px; }
 
 .industry-wrapper h3 {
     font-size: 24px;
@@ -529,10 +523,7 @@ nav ul li a.active {
     transform: translateX(4px);
 }
 
-/* ==========================================================================
-   MISSION & VISION
-   ========================================================================== */
-
+/* Mission & Vision */
 .mv-section {
     background: #1a1a1a;
     padding: 80px 60px;
@@ -553,9 +544,7 @@ nav ul li a.active {
     text-align: center;
 }
 
-.mv-icon {
-    margin-bottom: 16px;
-}
+.mv-icon { margin-bottom: 16px; }
 
 .mv-box h3 {
     font-size: 26px;
@@ -578,10 +567,7 @@ nav ul li a.active {
     margin: 40px 0;
 }
 
-/* ==========================================================================
-   CORE VALUES SECTION
-   ========================================================================== */
-
+/* Core Values */
 .values-section {
     background: #f9f9f9;
     padding: 80px 60px;
@@ -647,9 +633,7 @@ nav ul li a.active {
     font-family: 'Aptos', sans-serif;
 }
 
-.value-icon {
-    margin-bottom: 16px;
-}
+.value-icon { margin-bottom: 16px; }
 
 .value-card h4 {
     font-size: 18px;
@@ -666,10 +650,7 @@ nav ul li a.active {
     line-height: 1.8;
 }
 
-/* ==========================================================================
-   FOOTER & VECTOR ALIGNMENTS
-   ========================================================================== */
-
+/* Footer */
 footer {
     background: #111;
     color: #aaa;
@@ -678,15 +659,13 @@ footer {
     font-size: 14px;
 }
 
-footer span {
-    color: #c81010;
-}
+footer span { color: #c81010; }
 
-/* SVG Dimensional Vector Control Blocks */
+/* SVG */
 .ind-arrow {
     width: 16px;
     height: 16px;
-    fill: #c81010; 
+    fill: #c81010;
     vertical-align: middle;
     transition: transform 0.25s ease, fill 0.25s ease;
     flex-shrink: 0;
@@ -705,43 +684,32 @@ footer span {
     margin-top: 5px;
 }
 
-/*dunno
-
-.hamburger {
-    display: none;
-}
-
-.close-menu {
-    display: none;
-}
-
-.sidebar-overlay {
-    display: none;
-}
-
-/*mobile addition
-
-html, body {
-    overflow-x: hidden;
-    max-width: 100%;
-}
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
 
 @media (max-width: 768px) {
 
-    /* ── Header ── */
+    body { padding-top: 0; }
+
+    /* Header */
     header {
-        height: auto;
-        padding: 8px 16px;
+        height: 50px;
         top: 30px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
     }
 
     nav {
+        width: 100%;
         max-width: 100%;
-        height: auto;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        padding: 0;
+        height: 50px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
     }
 
     .logo {
@@ -750,36 +718,123 @@ html, body {
 
     .logo img {
         position: static;
-        height: 40px;
+        height: 36px;
         width: auto;
+        top: auto;
+        left: auto;
     }
 
+    /* Hide desktop nav links */
     nav ul {
-        margin-left: 0;
-        flex-wrap: wrap;
-        gap: 4px 12px;
+        display: none;
+    }
+
+    /* Hamburger — visible on mobile */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 26px;
+        height: 18px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
         padding: 0;
+        z-index: 2100;
     }
 
-    nav ul li {
-        margin-right: 0;
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #c81010;
+        border-radius: 2px;
+        transition: all 0.3s ease;
     }
 
-    nav ul li a {
-        font-size: 13px;
+    /* Sidebar nav */
+    nav ul#navMenu {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -280px;
+        width: 260px;
+        height: 100vh;
+        background: #1a1a1a;
+        flex-direction: column;
+        padding: 70px 30px 30px;
+        margin: 0;
+        list-style: none;
+        gap: 0;
+        z-index: 3000;
+        transition: right 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+        box-shadow: -4px 0 20px rgba(0,0,0,0.3);
     }
 
-    body {
-        padding-top: 0;
+    nav ul#navMenu.open {
+        right: 0;
     }
 
-    /* ── Hero ── */
+    nav ul#navMenu li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    nav ul#navMenu li a {
+        display: block;
+        padding: 16px 0;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    nav ul#navMenu li a.active {
+        color: #ff4444;
+        border-bottom: none;
+    }
+
+    nav ul#navMenu li a::after {
+        display: none;
+    }
+
+    /* Close button */
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: transparent;
+        border: none;
+        color: #aaa;
+        font-size: 22px;
+        cursor: pointer;
+        line-height: 1;
+        z-index: 3100;
+    }
+
+    .close-menu:hover { color: #ff4444; }
+
+    /* Overlay */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 2999;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    /* Hero */
     .hero {
         height: auto;
         min-height: 100svh;
         flex-direction: column;
         margin-top: 0;
         display: flex;
+        padding-top: 80px;
     }
 
     .hero-bg-img {
@@ -812,47 +867,42 @@ html, body {
     }
 
     .hero-arrow {
-        top: calc(55vw / 2);
+        top: calc(80px + (55vw / 2));
+        font-size: 22px;
+        padding: 8px 12px;
+        opacity: 0.7;
     }
 
-    .hero-arrow.left  { left: 8px; }
-    .hero-arrow.right { right: 8px; }
+    .hero-arrow.left  { left: 6px; }
+    .hero-arrow.right { right: 6px; }
 
-    /* ── Dots — sit on top of the image ── */
     .hero-dots {
         position: absolute;
+        top: calc(80px + 55vw - 28px);
         bottom: auto;
-        top: calc(55vw - 28px);
         right: 50%;
         transform: translateX(50%);
         z-index: 10;
-        opacity: 0.50;
     }
 
-    /* ── Services ── */
+    /* Services */
     .services-portal-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
-    .services-portal-section {
-        padding: 60px 20px;
-    }
+    .services-portal-section { padding: 60px 20px; }
 
-    /* ── About ── */
+    /* About */
     .about-split {
         grid-template-columns: 1fr;
         gap: 30px;
     }
 
-    .about {
-        padding: 40px 20px;
-    }
+    .about { padding: 40px 20px; }
 
-    /* ── Mission & Vision ── */
-    .mv-container {
-        flex-direction: column;
-    }
+    /* Mission & Vision */
+    .mv-container { flex-direction: column; }
 
     .mv-divider {
         width: 100%;
@@ -860,19 +910,14 @@ html, body {
         margin: 0;
     }
 
-    .mv-section {
-        padding: 60px 20px;
-    }
+    .mv-section { padding: 60px 20px; }
+    .mv-box     { padding: 40px 24px; }
 
-    .mv-box {
-        padding: 40px 24px;
-    }
-
-    /* ── Core Values ── */
+    /* Core Values */
     .values-container {
         grid-template-columns: 1fr;
         gap: 16px;
-        padding: 0 4px;
+        padding: 0;
         max-width: 100%;
     }
 
@@ -887,135 +932,14 @@ html, body {
         overflow: hidden;
     }
 
-    /* ── Industry Grid ── */
+    /* Industry */
     .industry-grid {
         grid-template-columns: 1fr 1fr;
     }
-
 }
 
 @media (max-width: 480px) {
-    .values-container {
-        grid-template-columns: 1fr;
-    }
-
     .industry-grid {
         grid-template-columns: 1fr;
     }
-
-    nav ul li a {
-        font-size: 12px;
-    }
-
-    /* ── Hamburger button ── */
-    .hamburger {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 28px;
-        height: 20px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        margin-left: auto;
-    }
-
-    .hamburger span {
-        display: block;
-        width: 100%;
-        height: 2px;
-        background: #c81010;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-    }
-
-    /* ── Sidebar nav ── */
-    nav ul#navMenu {
-        position: fixed;
-        top: 0;
-        right: -280px;
-        width: 260px;
-        height: 100vh;
-        background: #1a1a1a;
-        flex-direction: column;
-        padding: 60px 30px 30px;
-        gap: 0;
-        z-index: 3000;
-        transition: right 0.35s cubic-bezier(0.77, 0, 0.175, 1);
-        box-shadow: -4px 0 20px rgba(0,0,0,0.3);
-        display: flex;
-    }
-
-    nav ul#navMenu.open {
-        right: 0;
-    }
-
-    nav ul#navMenu li {
-        margin: 0;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    nav ul#navMenu li a {
-        display: block;
-        padding: 16px 0;
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: 500;
-    }
-
-    nav ul#navMenu li a.active {
-        color: #ff4444;
-        border-bottom: none;
-    }
-
-    nav ul#navMenu li a::after {
-        display: none;
-    }
-
-    /* ── Close button ── */
-    .close-menu {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        background: transparent;
-        border: none;
-        color: #aaa;
-        font-size: 22px;
-        cursor: pointer;
-        line-height: 1;
-    }
-
-    .close-menu:hover {
-        color: #ff4444;
-    }
-
-    /* ── Dark overlay ── */
-    .sidebar-overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.5);
-        z-index: 2999;
-    }
-
-    .sidebar-overlay.active {
-        display: block;
-    }
-
-    /* ── Compact header on mobile ── */
-    header {
-        height: 50px;
-        padding: 0 16px;
-        display: flex;
-        align-items: center;
-    }
-
-    nav {
-        width: 100%;
-        height: 50px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 100%;
-    }
+}
