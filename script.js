@@ -40,7 +40,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Hero slideshow (Guarded: Only runs if slideshow elements exist)
+// Hero slideshow (Guarded)
 const bgImg = document.getElementById('heroBgImg');
 const dotsContainer = document.getElementById('heroDots');
 
@@ -106,14 +106,10 @@ if (hamburger && navMenu && closeMenu && overlay) {
         overlay.classList.remove('active');
     });
 
-    // ONLY close the sidebar automatically if the link is an in-page anchor link (starts with #)
     navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                navMenu.classList.remove('open');
-                overlay.classList.remove('active');
-            }
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            overlay.classList.remove('active');
         });
     });
 }
