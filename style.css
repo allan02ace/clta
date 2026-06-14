@@ -707,21 +707,44 @@ footer span {
 
 /*mobile addition
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 @media (max-width: 768px) {
 
-    /* ── Navigation ── */
+    /* ── Header ── */
+    header {
+        height: auto;
+        padding: 8px 16px;
+        top: 30px;
+    }
+
     nav {
+        max-width: 100%;
+        height: auto;
         flex-direction: column;
         align-items: flex-start;
-        padding: 10px 20px;
-        height: auto;
+        gap: 6px;
+        padding: 0;
+    }
+
+    .logo {
+        position: static;
+    }
+
+    .logo img {
+        position: static;
+        height: 40px;
+        width: auto;
     }
 
     nav ul {
         margin-left: 0;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
+        gap: 4px 12px;
+        padding: 0;
     }
 
     nav ul li {
@@ -729,26 +752,20 @@ footer span {
     }
 
     nav ul li a {
-        font-size: 15px;
-    }
-
-    .logo img {
-        height: 80px;
-        position: static;
-        top: auto;
-        left: auto;
+        font-size: 13px;
     }
 
     body {
-        padding-top: 60px;
+        padding-top: 0;
     }
 
     /* ── Hero ── */
     .hero {
         height: auto;
-        min-height: 100vh;
+        min-height: 100svh;
         flex-direction: column;
-        margin-top: -60px;
+        margin-top: 0;
+        display: flex;
     }
 
     .hero-bg-img {
@@ -756,9 +773,11 @@ footer span {
         top: auto;
         left: auto;
         width: 100%;
-        height: 260px;
+        height: 55vw;
+        min-height: 220px;
         object-fit: cover;
         object-position: center center;
+        z-index: 0;
     }
 
     .hero-panel {
@@ -767,22 +786,33 @@ footer span {
         height: auto;
         border-right: none;
         border-bottom: 4px solid #ff4444;
-        padding: 40px 24px;
+        padding: 30px 20px;
         transform: none;
         opacity: 1;
+        z-index: 2;
     }
 
     .hero-panel.visible {
         transform: none;
+        opacity: 1;
     }
 
-    .hero-arrow.left  { left: 10px; }
-    .hero-arrow.right { right: 10px; }
+    .hero-arrow {
+        top: calc(55vw / 2);
+    }
 
+    .hero-arrow.left  { left: 8px; }
+    .hero-arrow.right { right: 8px; }
+
+    /* ── Dots — sit on top of the image ── */
     .hero-dots {
-        bottom: 270px;
+        position: absolute;
+        bottom: auto;
+        top: calc(55vw - 28px);
         right: 50%;
         transform: translateX(50%);
+        z-index: 10;
+        opacity: 0.75;
     }
 
     /* ── Services ── */
@@ -825,11 +855,11 @@ footer span {
     }
 
     /* ── Core Values ── */
-    @media (max-width: 768px) {
     .values-container {
-        grid-template-columns: 1fr;   /* single column, full width */
+        grid-template-columns: 1fr;
         gap: 16px;
-        padding: 0 16px;
+        padding: 0 4px;
+        max-width: 100%;
     }
 
     .value-card {
@@ -850,45 +880,17 @@ footer span {
 
 }
 
-@media (max-width: 768px) {
-    header {
-        height: auto;
-        padding: 10px 20px;
+@media (max-width: 480px) {
+    .values-container {
+        grid-template-columns: 1fr;
     }
 
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        gap: 8px;
-    }
-
-    .logo {
-        position: static;
-    }
-
-    .logo img {
-        position: static;
-        height: 50px;
-        width: auto;
-    }
-
-    nav ul {
-        margin-left: 0;
-        flex-wrap: wrap;
-        gap: 6px 16px;
-        padding: 4px 0;
-    }
-
-    nav ul li {
-        margin-right: 0;
+    .industry-grid {
+        grid-template-columns: 1fr;
     }
 
     nav ul li a {
-        font-size: 14px;
+        font-size: 12px;
     }
-
-    body {
-        padding-top: 0;
-    }
+}    }
 }
