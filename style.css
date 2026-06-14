@@ -1,4 +1,8 @@
 * {
+    html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -821,13 +825,22 @@ footer span {
     }
 
     /* ── Core Values ── */
+    @media (max-width: 768px) {
     .values-container {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;   /* single column, full width */
         gap: 16px;
+        padding: 0 16px;
+    }
+
+    .value-card {
+        padding: 30px 20px;
+        box-sizing: border-box;
+        width: 100%;
     }
 
     .values-section {
-        padding: 60px 20px;
+        padding: 60px 16px;
+        overflow: hidden;
     }
 
     /* ── Industry Grid ── */
@@ -837,22 +850,45 @@ footer span {
 
 }
 
-@media (max-width: 480px) {
-
-    .values-container {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 10px 20px;
     }
 
-    .industry-grid {
-        grid-template-columns: 1fr;
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        gap: 8px;
+    }
+
+    .logo {
+        position: static;
+    }
+
+    .logo img {
+        position: static;
+        height: 50px;
+        width: auto;
     }
 
     nav ul {
-        display: none; /* hide nav on very small screens — add hamburger menu later if needed */
+        margin-left: 0;
+        flex-wrap: wrap;
+        gap: 6px 16px;
+        padding: 4px 0;
     }
 
-    .hero-titles h1 {
-        font-size: 18px;
+    nav ul li {
+        margin-right: 0;
     }
 
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    body {
+        padding-top: 0;
+    }
 }
