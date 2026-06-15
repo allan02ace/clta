@@ -269,5 +269,70 @@ header {
     .partner-card {
         width: 160px;
     }
+/* ==========================================================================
+   TEAM PAGE EASTER EGG POPUP
+   ========================================================================== */
 
+/* Gives her text heading an actionable pointer without breaking the text color */
+.easter-egg-name {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Modal Darkened Overlay Grid Layer */
+.secret-video-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.96); /* Immersive blackout */
+    z-index: 99999; /* Positions interface above standard layout frameworks */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.35s ease-in-out;
+}
+
+.secret-video-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Video Frame Dimensions */
+.secret-video-container {
+    position: relative;
+    width: 90%;
+    max-width: 820px;
+    background: #000;
+    border: 2px solid #c81010; /* Highlight branding border line */
+    border-radius: 6px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+}
+
+.secret-video-container video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Close UI button configuration */
+.close-secret-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: 200;
+    cursor: pointer;
+    z-index: 100001;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.close-secret-btn:hover {
+    color: #ff4444;
+    transform: scale(1.1);
+}
 }
