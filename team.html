@@ -174,7 +174,7 @@
                     <div class="team-card">
                         <div class="team-photo"></div>
                         <div class="team-info">
-                            <h3>Junesse Badua</h3>
+                            <h3 id="junesseTrigger" class="easter-egg-name">Junesse Badua</h3>
                             <span class="team-title">Associate</span>
                             <a href="mailto:jpbadua@cltafirm.com" class="team-email">jpbadua@cltafirm.com</a>
                         </div>
@@ -274,6 +274,18 @@
 
     </section>
 
+    <div id="secretVideoModal" class="secret-video-overlay">
+        <div class="secret-video-container">
+            <button id="closeSecretVideo" class="close-secret-btn">&times;</button>
+            
+            <video id="easterEggVideo" controls width="100%">
+                <source src="videos/secret-video.mp4" type="video/mp4">
+                Your browser does not support the video canvas wrapper.
+            </video>
+
+            </div>
+    </div>
+
     <footer>
         <p>&copy; 2026 <span>Cruz, Lontok, Tullao, Abrigo and Co.</span> All rights reserved.</p>
     </footer>
@@ -311,25 +323,21 @@
             cards.forEach(card => row.appendChild(card));
         });
 
-        // 3. 🛠️ DYNAMIC PHOTO INJECTION: SETS IMG PATH TO LOWERCASE FIRSTNAME.JPG
+        // 3. DYNAMIC PHOTO INJECTION: SETS IMG PATH TO LOWERCASE FIRSTNAME.JPG
         const allCards = document.querySelectorAll(".team-card");
         allCards.forEach(card => {
             const h3Element = card.querySelector("h3");
             if (!h3Element) return;
 
             const fullName = h3Element.textContent.trim();
-            
-            // Extract the first word, remove non-alphabet components, convert to lowercase
             const firstName = fullName.split(" ")[0].replace(/[^a-zA-Z]/g, "").toLowerCase();
-            
-            // Target the empty profile picture circle wrapper
             const photoContainer = card.querySelector(".team-photo");
+            
             if (photoContainer) {
                 const img = document.createElement("img");
                 img.src = `team/${firstName}.jpg`;
                 img.alt = fullName;
                 
-                // Fallback image logic if a photo file path is missing entirely
                 img.onerror = () => {
                     img.src = "team/avatar.jpg"; 
                 };
@@ -337,6 +345,50 @@
                 photoContainer.appendChild(img);
             }
         });
+
+        // 4. SECRET VIDEO MODAL CONTROL HOOK
+        const junesseTrigger = document.getElementById('junesseTrigger');
+        const secretModal = document.getElementById('secretVideoModal');
+        const closeSecretBtn = document.getElementById('closeSecretVideo');
+        const localVideo = document.getElementById('easterEggVideo');
+        const youtubePlayer = document.getElementById('youtubePlayer');
+
+        if (junesseTrigger && secretModal && closeSecretBtn) {
+            
+            // Show structural overlay view and spin up stream tracks
+            junesseTrigger.addEventListener('click', () => {
+                secretModal.classList.add('active');
+                
+                if (localVideo) {
+                    localVideo.currentTime = 0;
+                    localVideo.play().catch(err => console.log("Media autoplay interaction policy intercept:", err));
+                }
+                if (youtubePlayer) {
+                    youtubePlayer.src += "&autoplay=1";
+                }
+            });
+
+            // Wipe activation classes and force execution pipeline kill
+            const shutDownVideo = () => {
+                secretModal.classList.remove('active');
+                if (localVideo) {
+                    localVideo.pause();
+                }
+                if (youtubePlayer) {
+                    const currentSrc = youtubePlayer.src;
+                    youtubePlayer.src = currentSrc.replace("&autoplay=1", "");
+                }
+            };
+
+            closeSecretBtn.addEventListener('click', shutDownVideo);
+            
+            // Mask click intercept (closes out if background shadow layer is targeted directly)
+            secretModal.addEventListener('click', (e) => {
+                if (e.target === secretModal) {
+                    shutDownVideo();
+                }
+            });
+        }
     });
     </script>
 <script src="script.js"></script>
