@@ -965,48 +965,45 @@ footer span { color: #c81010; }
 }
 
 /* ==========================================================================
-   LIGHTWEIGHT MESSENGER FLOATING LAUNCHER
+   PURE VECTOR MESSENGER FLOATING LAUNCHER
    ========================================================================== */
-.messenger-pure-btn {
+.messenger-vector-btn {
     position: fixed;
     bottom: 30px;
     right: 30px;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #006aff, #00c6ff);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 18px rgba(0, 106, 255, 0.4);
     z-index: 99999;
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+    background: transparent; /* Let the SVG paths handle the coloration */
+    display: block;
     cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Scaled SVG sizing inside the circle wrapper */
-.messenger-svg-icon {
-    width: 34px;
-    height: 34px;
-    fill: #ffffff;
+/* Forces your paths to scale fluidly within the 60px layout wrapper */
+.messenger-svg-vector {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(8, 102, 255, 0.35));
+    transition: filter 0.2s ease;
 }
 
-/* Interactive Hover Feedback Trigger */
-.messenger-pure-btn:hover {
+/* Physics Interaction Feedback Triggers */
+.messenger-vector-btn:hover {
     transform: scale(1.08) translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 106, 255, 0.55);
 }
 
-/* Smooth scaling adaptation for smaller mobile screen breaklines */
+.messenger-vector-btn:hover .messenger-svg-vector {
+    filter: drop-shadow(0 8px 22px rgba(8, 102, 255, 0.55));
+}
+
+/* Mobile Responsiveness Rules */
 @media (max-width: 480px) {
-    .messenger-pure-btn {
+    .messenger-vector-btn {
         bottom: 20px;
         right: 20px;
         width: 54px;
         height: 54px;
-    }
-    .messenger-svg-icon {
-        width: 30px;
-        height: 30px;
     }
 }
