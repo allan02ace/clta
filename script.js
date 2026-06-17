@@ -24,44 +24,37 @@ if (heroPanel) {
 }
 
 // ==========================================
-// 3. STEPPING-STONE SCROLL ARROW BEHAVIOR (Fixed Coordinates)
+// 3. STEPPING-STONE SCROLL ARROW BEHAVIOR (Viewport Relative)
 // ==========================================
 const scrollArrow = document.getElementById('scrollArrow');
 
-// Mapped precisely to your explicit HTML IDs and Classes
 const sectionSelectors = [
     '#what-we-do',
     '.about',
-    '.industry-wrapper', // Nested div handled safely now
+    '.industry-wrapper',
     '.mv-section',
-    '.values-section'    // Core Values (Final destination)
+    '.values-section' // Core Values (The End)
 ];
 
 if (scrollArrow) {
-    // Generate valid elements based on selectors array
     const orderedSections = sectionSelectors
         .map(selector => document.querySelector(selector))
         .filter(el => el !== null);
 
     const finalSection = orderedSections[orderedSections.length - 1];
 
-    // Helper function to get absolute page coordinates regardless of CSS nesting parent elements
-    const getAbsoluteTop = (element) => {
-        return element.getBoundingClientRect().top + window.scrollY;
-    };
-
     // 1. Smoothly fade out arrow when arriving at Core Values or page bottom
     window.addEventListener('scroll', () => {
         let shouldHide = false;
 
         if (finalSection) {
-            const finalSectionTop = getAbsoluteTop(finalSection);
-            // Arrow vanishes safely when Core Values hits near the top viewport line
-            shouldHide = window.scrollY >= (finalSectionTop - 120);
+            const rect = finalSection.getBoundingClientRect();
+            // If the final section's top is within 120px of the top of the screen, hide arrow
+            shouldHide = rect.top <= 120;
         }
 
-        // Safety fallback check for reaching absolute bottom boundary of layout
-        const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 120;
+        // Fallback check for absolute bottom of the document space
+        const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 50;
         
         if (shouldHide || scrolledToBottom) {
             scrollArrow.classList.add('hidden');
@@ -70,19 +63,17 @@ if (scrollArrow) {
         }
     });
 
-    // 2. Sequential Step Router Engine
+    // 2. Click Router: Always finds the next section below the viewport window
     scrollArrow.addEventListener('click', (e) => {
         e.preventDefault();
-        const currentScrollPosition = window.scrollY;
 
-        // Finds the next section whose top boundary is at least 30px FURTHER down than your current view window.
-        // The (+ 30) acts as a safety threshold to bypass subpixel rounding calculation dead-zones entirely.
+        // Find the first section whose top boundary is at least 100px BELOW the top of the screen.
+        // This completely bypasses sticky headers, padding adjustments, and subpixel rounding bugs.
         const nextTarget = orderedSections.find(section => {
-            const sectionTop = getAbsoluteTop(section);
-            return sectionTop > (currentScrollPosition + 30);
+            const rect = section.getBoundingClientRect();
+            return rect.top > 100; 
         });
 
-        // If a chronological step remains downstream, execute jump transition
         if (nextTarget) {
             nextTarget.scrollIntoView({ 
                 behavior: 'smooth', 
@@ -123,7 +114,6 @@ if (bgImg && dotsContainer) {
     ];
     let current = 0;
 
-    // Create navigation dots
     slides.forEach((_, i) => {
         const dot = document.createElement('span');
         dot.classList.add('hero-dot');
