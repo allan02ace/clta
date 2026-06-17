@@ -24,38 +24,43 @@ if (heroPanel) {
 }
 
 // ==========================================
-// 3. STEPPING-STONE SCROLL ARROW BEHAVIOR
+// 3. STEPPING-STONE SCROLL ARROW BEHAVIOR (Fixed Coordinates)
 // ==========================================
 const scrollArrow = document.getElementById('scrollArrow');
 
-// Sequenced exactly to match your HTML tags and structural flow
+// Mapped precisely to your explicit HTML IDs and Classes
 const sectionSelectors = [
     '#what-we-do',
     '.about',
-    '.industry-wrapper',
+    '.industry-wrapper', // Nested div handled safely now
     '.mv-section',
-    '.values-section' // Core Values (Final destination)
+    '.values-section'    // Core Values (Final destination)
 ];
 
 if (scrollArrow) {
-    // Generate valid elements based on the selectors array
+    // Generate valid elements based on selectors array
     const orderedSections = sectionSelectors
         .map(selector => document.querySelector(selector))
         .filter(el => el !== null);
 
     const finalSection = orderedSections[orderedSections.length - 1];
-    const scrollBuffer = 60; // Prevents layout calculations from getting stuck due to padding
+
+    // Helper function to get absolute page coordinates regardless of CSS nesting parent elements
+    const getAbsoluteTop = (element) => {
+        return element.getBoundingClientRect().top + window.scrollY;
+    };
 
     // 1. Smoothly fade out arrow when arriving at Core Values or page bottom
     window.addEventListener('scroll', () => {
         let shouldHide = false;
 
         if (finalSection) {
-            // Arrow vanishes when Core Values hits near the top of the viewport
-            shouldHide = window.scrollY >= (finalSection.offsetTop - 120);
+            const finalSectionTop = getAbsoluteTop(finalSection);
+            // Arrow vanishes safely when Core Values hits near the top viewport line
+            shouldHide = window.scrollY >= (finalSectionTop - 120);
         }
 
-        // Safety fallback check for reaching absolute bottom of the document space
+        // Safety fallback check for reaching absolute bottom boundary of layout
         const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 120;
         
         if (shouldHide || scrolledToBottom) {
@@ -70,12 +75,14 @@ if (scrollArrow) {
         e.preventDefault();
         const currentScrollPosition = window.scrollY;
 
-        // Locates the first section down the list that is currently below the viewpoint window
+        // Finds the next section whose top boundary is at least 30px FURTHER down than your current view window.
+        // The (+ 30) acts as a safety threshold to bypass subpixel rounding calculation dead-zones entirely.
         const nextTarget = orderedSections.find(section => {
-            return currentScrollPosition < (section.offsetTop - scrollBuffer);
+            const sectionTop = getAbsoluteTop(section);
+            return sectionTop > (currentScrollPosition + 30);
         });
 
-        // If a chronological step remains on screen, target it for a smooth jump down
+        // If a chronological step remains downstream, execute jump transition
         if (nextTarget) {
             nextTarget.scrollIntoView({ 
                 behavior: 'smooth', 
