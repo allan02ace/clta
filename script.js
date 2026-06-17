@@ -1,6 +1,9 @@
-// Nav active link
+// ==========================================
+// 1. NAV ACTIVE LINK HIGHLIGHTER
+// ==========================================
 const links = document.querySelectorAll('nav ul li a');
 const currentFilename = window.location.pathname.split('/').pop();
+
 links.forEach(link => {
     const linkFilename = link.getAttribute('href');
     if (currentFilename === linkFilename) {
@@ -10,7 +13,9 @@ links.forEach(link => {
     }
 });
 
-// Hero panel slide-in (Guarded)
+// ==========================================
+// 2. HERO PANEL SLIDE-IN ANIMATION (Guarded)
+// ==========================================
 const heroPanel = document.getElementById('heroPanel');
 if (heroPanel) {
     window.addEventListener('load', () => {
@@ -18,41 +23,69 @@ if (heroPanel) {
     });
 }
 
-// Scroll arrow hide at bottom (Guarded)
+// ==========================================
+// 3. SCROLL ARROW BEHAVIOR
+// ==========================================
 const scrollArrow = document.getElementById('scrollArrow');
+const nextSection = document.getElementById('what-we-do');
+
 if (scrollArrow) {
+    // Hide the arrow smoothly when approaching the bottom of the page
     window.addEventListener('scroll', () => {
         const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 150;
+        
         if (scrolledToBottom) {
             scrollArrow.classList.add('hidden');
         } else {
             scrollArrow.classList.remove('hidden');
         }
     });
+
+    // Smoothly scroll down to the "What We Do" section on click
+    scrollArrow.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (nextSection) {
+            nextSection.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+    });
 }
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// ==========================================
+// 4. GENERAL SMOOTH SCROLL HANDLER
+// ==========================================
+// Handles all other anchor links while preventing double-triggering on the scroll arrow
+document.querySelectorAll('a[href^="#"]:not(#scrollArrow)').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        if (target) {
+            target.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
     });
 });
 
-// Hero slideshow (Guarded)
+// ==========================================
+// 5. HERO SLIDESHOW (Guarded & WebP Optimized)
+// ==========================================
 const bgImg = document.getElementById('heroBgImg');
 const dotsContainer = document.getElementById('heroDots');
 
 if (bgImg && dotsContainer) {
     const slides = [
-        { src: 'images/brg.jpg',  position: 'center center' },
-        { src: 'images/brg2.jpg', position: 'center center' },
-        { src: 'images/brg3.jpg', position: 'center center' },
-        { src: 'images/brg4.jpg', position: 'center center' }
+        { src: 'images/brg.webp',  position: 'center center' },
+        { src: 'images/brg2.webp', position: 'center center' },
+        { src: 'images/brg3.webp', position: 'center center' },
+        { src: 'images/brg4.webp', position: 'center center' }
     ];
     let current = 0;
 
+    // Create navigation dots
     slides.forEach((_, i) => {
         const dot = document.createElement('span');
         dot.classList.add('hero-dot');
@@ -84,7 +117,9 @@ if (bgImg && dotsContainer) {
     if (heroNext) heroNext.addEventListener('click', () => goTo(current + 1));
 }
 
-// Hamburger sidebar (Guarded)
+// ==========================================
+// 6. HAMBURGER MOBILE SIDEBAR (Guarded)
+// ==========================================
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 const closeMenu = document.getElementById('closeMenu');
@@ -106,24 +141,26 @@ if (hamburger && navMenu && closeMenu && overlay) {
         overlay.classList.remove('active');
     });
 
+    // Close sidebar when clicking any menu link
     navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('open');
             overlay.classList.remove('active');
         });
+    });
+}
 
-
-// List all the background images you want to preload
+// ==========================================
+// 7. GLOBAL SILENT IMAGE PRELOADER
+// ==========================================
+// Cache modern background images in the background right at startup
 const imagesToPreload = [
     "images/brg2.webp",
     "images/brg3.webp",
     "images/brg4.webp"
 ];
 
-// Loop through and force the browser to download them silently
 imagesToPreload.forEach((imagePath) => {
     const img = new Image();
     img.src = imagePath;
 });
-    });
-}
