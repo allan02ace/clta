@@ -963,3 +963,50 @@ footer span { color: #c81010; }
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   LIGHTWEIGHT MESSENGER FLOATING LAUNCHER
+   ========================================================================== */
+.messenger-pure-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #006aff, #00c6ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 18px rgba(0, 106, 255, 0.4);
+    z-index: 99999;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+    cursor: pointer;
+}
+
+/* Scaled SVG sizing inside the circle wrapper */
+.messenger-svg-icon {
+    width: 34px;
+    height: 34px;
+    fill: #ffffff;
+}
+
+/* Interactive Hover Feedback Trigger */
+.messenger-pure-btn:hover {
+    transform: scale(1.08) translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 106, 255, 0.55);
+}
+
+/* Smooth scaling adaptation for smaller mobile screen breaklines */
+@media (max-width: 480px) {
+    .messenger-pure-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 54px;
+        height: 54px;
+    }
+    .messenger-svg-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
