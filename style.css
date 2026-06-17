@@ -958,6 +958,20 @@ footer span { color: #c81010; }
     }
 }
 
+/* Ensure the base arrow has a smooth transition effect */
+.scroll-down {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* This class gets added by JavaScript at the bottom of the page */
+.scroll-down.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Prevents the user from accidentally clicking it while invisible */
+}
+
 @media (max-width: 480px) {
     .industry-grid {
         grid-template-columns: 1fr;
@@ -1007,3 +1021,5 @@ footer span { color: #c81010; }
         height: 54px;
     }
 }
+
+
