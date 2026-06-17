@@ -24,28 +24,60 @@ if (heroPanel) {
 }
 
 // ==========================================
-// 3. SCROLL ARROW BEHAVIOR
+// 3. STEPPING-STONE SCROLL ARROW BEHAVIOR
 // ==========================================
 const scrollArrow = document.getElementById('scrollArrow');
-const nextSection = document.getElementById('what-we-do');
+
+// Sequenced exactly to match your HTML tags and structural flow
+const sectionSelectors = [
+    '#what-we-do',
+    '.about',
+    '.industry-wrapper',
+    '.mv-section',
+    '.values-section' // Core Values (Final destination)
+];
 
 if (scrollArrow) {
-    // Hide the arrow smoothly when approaching the bottom of the page
+    // Generate valid elements based on the selectors array
+    const orderedSections = sectionSelectors
+        .map(selector => document.querySelector(selector))
+        .filter(el => el !== null);
+
+    const finalSection = orderedSections[orderedSections.length - 1];
+    const scrollBuffer = 60; // Prevents layout calculations from getting stuck due to padding
+
+    // 1. Smoothly fade out arrow when arriving at Core Values or page bottom
     window.addEventListener('scroll', () => {
-        const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 150;
+        let shouldHide = false;
+
+        if (finalSection) {
+            // Arrow vanishes when Core Values hits near the top of the viewport
+            shouldHide = window.scrollY >= (finalSection.offsetTop - 120);
+        }
+
+        // Safety fallback check for reaching absolute bottom of the document space
+        const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 120;
         
-        if (scrolledToBottom) {
+        if (shouldHide || scrolledToBottom) {
             scrollArrow.classList.add('hidden');
         } else {
             scrollArrow.classList.remove('hidden');
         }
     });
 
-    // Smoothly scroll down to the "What We Do" section on click
+    // 2. Sequential Step Router Engine
     scrollArrow.addEventListener('click', (e) => {
         e.preventDefault();
-        if (nextSection) {
-            nextSection.scrollIntoView({ 
+        const currentScrollPosition = window.scrollY;
+
+        // Locates the first section down the list that is currently below the viewpoint window
+        const nextTarget = orderedSections.find(section => {
+            return currentScrollPosition < (section.offsetTop - scrollBuffer);
+        });
+
+        // If a chronological step remains on screen, target it for a smooth jump down
+        if (nextTarget) {
+            nextTarget.scrollIntoView({ 
                 behavior: 'smooth', 
                 block: 'start' 
             });
@@ -56,7 +88,6 @@ if (scrollArrow) {
 // ==========================================
 // 4. GENERAL SMOOTH SCROLL HANDLER
 // ==========================================
-// Handles all other anchor links while preventing double-triggering on the scroll arrow
 document.querySelectorAll('a[href^="#"]:not(#scrollArrow)').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -141,7 +172,6 @@ if (hamburger && navMenu && closeMenu && overlay) {
         overlay.classList.remove('active');
     });
 
-    // Close sidebar when clicking any menu link
     navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('open');
@@ -153,7 +183,6 @@ if (hamburger && navMenu && closeMenu && overlay) {
 // ==========================================
 // 7. GLOBAL SILENT IMAGE PRELOADER
 // ==========================================
-// Cache modern background images in the background right at startup
 const imagesToPreload = [
     "images/brg2.webp",
     "images/brg3.webp",
