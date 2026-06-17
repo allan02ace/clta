@@ -111,5 +111,19 @@ if (hamburger && navMenu && closeMenu && overlay) {
             navMenu.classList.remove('open');
             overlay.classList.remove('active');
         });
+
+
+// List all the background images you want to preload
+const imagesToPreload = [
+    "images/brg2.webp",
+    "images/brg3.webp",
+    "images/brg4.webp"
+];
+
+// Loop through and force the browser to download them silently
+imagesToPreload.forEach((imagePath) => {
+    const img = new Image();
+    img.src = imagePath;
+});
     });
 }
